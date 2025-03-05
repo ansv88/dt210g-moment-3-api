@@ -33,7 +33,7 @@ function authenticateToken(req, res, next) {
         return res.status(401).json({ message: "Ingen behörighet - token saknas!" });
     }
 
-    jwt.verify(token, process.env.JWT_SECRET, (error, decoded) => {
+    jwt.verify(token, process.env.JWT_SECRET, (error) => {
         if (error) {
             return res.status(403).json({ message: "Ogiltig token" });
         }
